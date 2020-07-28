@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "494408116879",
+    "firebase_url": "https://cse227-91626.firebaseio.com",
+    "project_id": "cse227-91626",
+    "storage_bucket": "cse227-91626.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:494408116879:android:3c4f10df72657753561efa",
+        "android_client_info": {
+          "package_name": "com.geexec.cse227"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "494408116879-ovtsrtkdvefl2e29t75qa71ml71vtld8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAke-qQZ0N9kNeQlQd1z-6d-CgYSBDhtRs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "494408116879-ovtsrtkdvefl2e29t75qa71ml71vtld8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

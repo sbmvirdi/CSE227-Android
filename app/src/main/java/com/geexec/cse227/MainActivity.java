@@ -124,7 +124,8 @@ public class MainActivity extends AppCompatActivity {
                      startActivity(i);
                      finish();
                  }else{
-                     Log.e(TAG,"Verify Email first");
+                     Toast.makeText(this, "Verify email first", Toast.LENGTH_SHORT).show();
+                     mAuth.signOut();
                  }
              }
          });

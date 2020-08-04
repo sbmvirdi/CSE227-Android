@@ -23,7 +23,7 @@ import java.util.Map;
 
 public class LoggedInActivity extends AppCompatActivity {
 
-    private Button mLogout,saveButton,readButton;
+    private Button mLogout,saveButton,readButton,listshow;
     private FirebaseAuth mAuth;
     private EditText phoneNo,Name;
     private DatabaseReference mRef;
@@ -50,6 +50,14 @@ public class LoggedInActivity extends AppCompatActivity {
         phoneNo = findViewById(R.id.phoneNo);
         Name = findViewById(R.id.Name);
         readButton = findViewById(R.id.readButton);
+        listshow = findViewById(R.id.listshow);
+
+
+
+        listshow.setOnClickListener(view -> {
+            Intent i = new Intent(this,ListShow.class);
+            startActivity(i);
+        });
 
 
         saveButton.setOnClickListener(view -> {

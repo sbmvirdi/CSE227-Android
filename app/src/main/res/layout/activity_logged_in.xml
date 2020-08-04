@@ -52,6 +52,14 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Show List"
+        android:id="@+id/listshow"
+        app:layout_constraintLeft_toRightOf="@id/readButton"
+        app:layout_constraintTop_toBottomOf="@id/Name"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="Log out"
         android:id="@+id/logout"
         app:layout_constraintTop_toTopOf="parent"

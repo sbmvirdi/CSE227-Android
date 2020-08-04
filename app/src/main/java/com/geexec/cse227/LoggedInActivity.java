@@ -1,5 +1,6 @@
 package com.geexec.cse227;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -11,15 +12,18 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class LoggedInActivity extends AppCompatActivity {
 
-    private Button mLogout,saveButton;
+    private Button mLogout,saveButton,readButton;
     private FirebaseAuth mAuth;
     private EditText phoneNo,Name;
     private DatabaseReference mRef;
@@ -45,6 +49,7 @@ public class LoggedInActivity extends AppCompatActivity {
         saveButton = findViewById(R.id.saveButton);
         phoneNo = findViewById(R.id.phoneNo);
         Name = findViewById(R.id.Name);
+        readButton = findViewById(R.id.readButton);
 
 
         saveButton.setOnClickListener(view -> {
@@ -68,6 +73,28 @@ public class LoggedInActivity extends AppCompatActivity {
                     Toast.makeText(this, "Data saved!", Toast.LENGTH_SHORT).show();
                     Name.setText("");
                     phoneNo.setText("");
+                }
+            });
+        });
+
+        readButton.setOnClickListener(view -> {
+            FirebaseDatabase.getInstance().getReference(uid).addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    if (snapshot.exists()){
+                        String name = (String) snapshot.child("name").getValue();
+                        String phoneno = (String) snapshot.child("phoneNo").getValue();
+                        Name.setText(name);
+                        phoneNo.setText(phoneno);
+                        Toast.makeText(LoggedInActivity.this, "Read Successful!", Toast.LENGTH_SHORT).show();
+                    }else {
+                        Toast.makeText(LoggedInActivity.this, "Save Data First!", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
                 }
             });
         });
